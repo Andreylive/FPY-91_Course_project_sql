@@ -10,7 +10,9 @@ class Publisher(Base):
 
     id = sq.Column(sq.Integer, primary_key=True)
     name = sq.Column(sq.String(length=40), unique=True)
-
+    
+    def __str__(self):
+        return f'Изадельство: {self.name}'
 
 class Book(Base):
     __tablename__ = "book"
@@ -20,6 +22,9 @@ class Book(Base):
     id_publisher = sq.Column(sq.Integer, sq.ForeignKey("publisher.id"), nullable=False)
     publisher = relationship(Publisher, backref="book")
 
+    def __str__(self):
+        return self.name
+    
 
 class Shop(Base):
     __tablename__ = "shop"
