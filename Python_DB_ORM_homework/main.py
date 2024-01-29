@@ -88,8 +88,7 @@ def get_sales(shop):
         final_data = data.filter(Shop.name == shop).all()
 
     for Book.name, Shop.name, Sale.price, Sale.date_sale in final_data:
-        print(f"{Book.name: <20} | {Shop.name: <10} | {Sale.price: 5} | {Sale.date_sale.strftime('%d-%m-%Y')}")
-
+        print(f"{Book.name: <20} n/| {Shop.name: <10} | {Sale.price: 5} | {Sale.date_sale.strftime('%d-%m-%Y')}")
 
 if __name__ == '__main__':
     word = input("Введите имя или id магазина: ").capitalize()
